@@ -66,6 +66,7 @@ class CourseEnrolmentActor @Inject()(@Named("course-batch-notification-actor") c
     private val cassandraOperation = ServiceFactory.getInstance
     val jsonFields = Set[String]("lrcProgressDetails")
     private val mapper = new ObjectMapper
+    private val orgEligibilityIndex = ProjectUtil.getConfigValue(JsonKey.ORG_ELIGIBILITY_INDEX)
     override def preStart { println("Starting CourseEnrolmentActor") }
 
     override def postStop {
